@@ -11,6 +11,14 @@ import DayList from "components/DayList";
 import InterviewerListItem from "components/InterviewerListItem"
 import InterviewerList from "components/InterviewerList"
 import Appointment from "components/Appointment/index.js";
+import Header from "components/Appointment/Header"
+import Show from "components/Appointment/Show";
+import Confirm from "components/Appointment/Confirm";
+import Status from "components/Appointment/Status";
+import Error from "components/Appointment/Error";
+import Empty from "components/Appointment/Empty";
+import Create from "components/Appointment/Form";
+import Edit from "components/Appointment/Form";
 
 storiesOf("Button", module)
   .addParameters({
@@ -125,13 +133,13 @@ storiesOf("InterviewerList", module)
   .add("Selected", () => (
     <InterviewerList
       interviewers={interviewers}
-      interviewer={3}
+      value={3}
     />
   ))
   .add("Clickable", () => (
     <InterviewerList
       interviewers={interviewers}
-      setInterviewer={action("setInterviewer")}
+      onChange={action("onChange")}
     />
   ));
 
@@ -140,4 +148,12 @@ storiesOf("Appointment", module)
     backgrounds: [{ name: "white", value: "#fff", default: true }]
   })
   .add("Appointment", () => <Appointment />)
-  .add("Appointment with Time", () => <Appointment time="12pm" />);
+  .add("Appointment with Time", () => <Appointment time="12pm" />)
+  .add("Header", () => <Header time="12pm" />)
+  .add("Empty", () => <Empty onAdd={action("onAdd")} />)
+  .add("Show", () => <Show student="Lydia Miller-Jones" interviewer={interviewer} onEdit={action("onEdit")} onDelete={action("onDelete")}/>)
+  .add("Confirm", () => <Confirm message="Delete the appointment?" onConfirm={action("onConfirm")} onCancel={action("onCancel")}/>)
+  .add("Status", () => <Status message="Deleting"/>)
+  .add("Error", () => <Error message="Could not delete appointment." onClose={action("onClose")}/>)
+  .add("Create", () => <Create interviewers={interviewers} onSave={action("onSave")} onCancel={action("onCancel")}/>)
+  .add("Edit", () => <Edit name="Matt" interviewers={interviewers} interviewer={interviewer} onSave={action("onSave")} onCancel={action("onCancel")}/>)
