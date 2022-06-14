@@ -1,10 +1,8 @@
-import React, { useState } from "react";
-
+import React, { useState, useEffect } from "react";
 import "components/Application.scss";
-
 import Appointment from "components/Appointment";
-
-import DayList from "components/DayList"
+import DayList from "components/DayList";
+import axios from "axios";
 
 const days = [
   {
