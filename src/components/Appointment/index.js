@@ -4,7 +4,7 @@ import Header from "./Header";
 import Show from "./Show";
 import Empty from "./Empty";
 import useVisualMode from "hooks/useVisualMode";
-import { getAppointmentsForDay, getInterview } from "helpers/selectors";
+import { getAppointmentsForDay, getInterview, getInterviewsForDay } from "helpers/selectors";
 import Form from "components/Appointment/Form";
 import "components/Appointment/styles.scss";
 import Confirm from "components/Appointment/Confirm";
