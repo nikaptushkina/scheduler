@@ -6,11 +6,21 @@ export function getAppointmentsForDay(state, day) {
     return [];
   }
 
-  console.log(state.days);
-
   let appointmentsForDay = state.days.find(e => e.name === day);
   if (!appointmentsForDay) {
     return [];
   }
   return (!appointmentsForDay || appointmentsForDay.appointments.length < 1) ? [] : appointmentsForDay.appointments.map(apptID => apptID = state.appointments[apptID]);
+}
+
+export function getInterview(state, interview) {
+  if (!interview) {
+    return null;
+  } else {
+    let result = {
+      "student": interview.student,
+      "interviewer": state.interviewers[interview.interviewer]
+    }
+    return result;
+  }
 }
