@@ -28,18 +28,19 @@ describe("Application", () => {
     fireEvent.change(getByPlaceholderText(appointment, /enter student name/i), {
       target: { value: "Lydia Miller-Jones" }
     });
-  
+
     fireEvent.click(getByAltText(appointment, "Sylvia Palmer"));
+    debug()
     fireEvent.click(getByText(appointment, "Save"));
-  
-    expect(getByText(appointment, "Saving")).toBeInTheDocument();
-  
+    debug()
+    expect(getByText(appointment, "SAVING")).toBeInTheDocument();
+
     await waitForElement(() => getByText(appointment, "Lydia Miller-Jones"));
-  
+
     const day = getAllByTestId(container, "day").find(day =>
       queryByText(day, "Monday")
     );
-  
+
     expect(getByText(day, "no spots remaining")).toBeInTheDocument();
-  });  
+  });
 })
