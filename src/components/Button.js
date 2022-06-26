@@ -4,6 +4,7 @@ import classNames from "classnames";
 import "components/Button.scss";
 
 export default function Button(props) {
+  // different button classes to button component that depends on type of button
    let buttonClass = classNames("button", {
       "button--confirm": props.confirm,
       "button--danger": props.danger

@@ -24,23 +24,31 @@ export default function Appointment(props) {
   const ERROR_SAVE = "ERROR_SAVE";
   const ERROR_DELETE = "ERROR_DELETE";
 
+  // called when saving form data
   function save(name, interviewer) {
+    // create new interview object when form is submitted
     const interview = {
       student: name,
       interviewer
     };
+    // for users to see that request is being processed
     transition(SAVING);
+    // call to book interview using id of appointment for that block and add new interview object- returns promise then showing appointment
     props.bookInterview(props.id, interview).then(
       () => transition(SHOW)
     ).catch(function (error) {transition(ERROR_SAVE, true)})
   };
 
+  // called to transition to confirm request mode when clicking delete button
   function deleteAppointment() {
     transition(CONFIRM);
   }
 
+  // called when confirming delete
   function confirmDeleteAppointment() {
+    // shows users a processing delete screen
     transition(DELETING, true);
+    // cancel interview function with id of appointent to remove from database- returns promise which shows empty appointment slot
     props.cancelInterview(props.id).then(() => transition(EMPTY)).catch(function (error) {transition(ERROR_DELETE, true)})
   }
 

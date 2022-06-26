@@ -5,6 +5,7 @@ import classNames from "classnames";
 import "components/InterviewerListItem.scss";
 
 export default function InterviewerListItem(props) {
+  // add class dependin gon if interview is selected and display name
   const interviewerClass = classNames("interviewers__item", {
     "interviewers__item--selected": props.selected });
 

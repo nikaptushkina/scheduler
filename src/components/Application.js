@@ -7,6 +7,7 @@ import axios from "axios";
 import useApplicationData from "../hooks/useApplicationData";
 
 export default function Application(props) {
+  // get from hook to user in component
   const {
     state,
     setDay,
@@ -14,10 +15,13 @@ export default function Application(props) {
     cancelInterview
   } = useApplicationData();
 
+  // get appointments for certain day using the current state and day
   const dailyAppointments = getAppointmentsForDay(state, state.day);
 
+  // create array of appointment components for day (each gets info from individual appoitment as props)
   const appointmentComponents = dailyAppointments.map((appointment) => {
     const interview = getInterview(state, appointment.interview);
+    // get omtervoewers available for that day
     const interviewers = getInterviewersForDay(state, state.day);
     return (
       <Appointment 

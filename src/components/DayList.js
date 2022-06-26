@@ -4,7 +4,7 @@ import DayListItem from "./DayListItem";
 
 export default function DayList(props) {
   let {days} = props;
-  console.log(props.value);
+  // get array of day components using props from Application
   return (
     days.map(day =>
       <DayListItem
