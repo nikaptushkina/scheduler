@@ -17,5 +17,4 @@ The app utilizes diverse testing development platforms like Storybook, Webpack D
 https://user-images.githubusercontent.com/78937584/175845828-eaef5977-c716-41c8-ae6d-04517dc7f436.mov
 
 #### You can add, edit, and delete appointments
-https://user-images.githubusercontent.com/78937584/175845839-8d7e154b-4915-475d-a835-529763ea9084.mov
-
+https://user-images.githubusercontent.com/78937584/175846262-ecbe1447-7a80-4c08-babc-8daa127151ad.mov
